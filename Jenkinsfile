@@ -24,5 +24,10 @@
          sh '${BUNPATH}/bun test .'
        }
      }
+     stage('Dockerize') {
+         steps {
+             sh "docker build . -t buninfo:${env.BUILD_NUMBER}"
+         }
+     }
    }
  }
